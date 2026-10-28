@@ -1,0 +1,2 @@
+# optional, only for 'netguard.py live'
+scapy>=2.5

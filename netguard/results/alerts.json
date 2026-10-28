@@ -1,0 +1,115 @@
+{
+ "total": 570,
+ "bytes": 36604,
+ "pps": 3.6,
+ "proto": {
+  "TCP": 249,
+  "DNS": 184,
+  "ICMP": 92,
+  "HTTP": 34,
+  "ARP": 11
+ },
+ "talkers": [
+  [
+   "192.168.1.1",
+   126
+  ],
+  [
+   "192.168.1.10",
+   83
+  ],
+  [
+   "192.168.1.23",
+   73
+  ],
+  [
+   "192.168.1.22",
+   67
+  ],
+  [
+   "192.168.1.24",
+   62
+  ],
+  [
+   "192.168.1.21",
+   62
+  ]
+ ],
+ "targets": [
+  [
+   "192.168.1.10",
+   201
+  ],
+  [
+   "192.168.1.1",
+   127
+  ],
+  [
+   "192.168.1.22",
+   46
+  ],
+  [
+   "192.168.1.23",
+   45
+  ],
+  [
+   "192.168.1.21",
+   42
+  ],
+  [
+   "192.168.1.24",
+   40
+  ]
+ ],
+ "alerts": [
+  {
+   "ts": 1793158344.248777,
+   "severity": "medium",
+   "category": "ICMP ping sweep",
+   "layer": "L3",
+   "src": "192.168.1.66",
+   "dst": "subnet",
+   "detail": "192.168.1.66 pinged 10 hosts in 3s - mapping live hosts on the network",
+   "evidence": {
+    "hosts": 10
+   }
+  },
+  {
+   "ts": 1793158401.60184,
+   "severity": "critical",
+   "category": "ARP cache poisoning (MITM)",
+   "layer": "L2",
+   "src": "de:ad:be:ef:00:66",
+   "dst": "192.168.1.1",
+   "detail": "192.168.1.1 moved from aa:bb:cc:00:00:01 to de:ad:be:ef:00:66 - attacker likely impersonating this host to intercept traffic",
+   "evidence": {
+    "ip": "192.168.1.1",
+    "old_mac": "aa:bb:cc:00:00:01",
+    "new_mac": "de:ad:be:ef:00:66"
+   }
+  },
+  {
+   "ts": 1793158401.694548,
+   "severity": "high",
+   "category": "Gratuitous ARP flood",
+   "layer": "L2",
+   "src": "de:ad:be:ef:00:66",
+   "dst": "192.168.1.1",
+   "detail": "8 unsolicited ARP replies from de:ad:be:ef:00:66 in 5s - cache poisoning attempt",
+   "evidence": {
+    "mac": "de:ad:be:ef:00:66",
+    "count": 8
+   }
+  }
+ ],
+ "alert_counts": {
+  "critical": 1,
+  "high": 1,
+  "medium": 1,
+  "info": 0
+ },
+ "arp_table": {
+  "192.168.1.1": "de:ad:be:ef:00:66"
+ },
+ "elapsed": 152.86
+}
